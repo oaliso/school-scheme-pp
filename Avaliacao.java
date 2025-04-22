@@ -19,7 +19,6 @@ public class Avaliacao {
         submissoes.add(submissao);
     }
 
-    // Getters e Setters
     public String getTipo() {
         return tipo;
     }
