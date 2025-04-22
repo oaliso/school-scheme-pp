@@ -1,8 +1,10 @@
 /* * 
  * Classe desenvolvida por Alisson de Carvalho Silva 
- * Pendente: assoicação com: turma.
+ * Pendente: n/a.
 * */
 
+import java.util.List;
+import java.util.ArrayList;
 
 public class Curso {
 	
@@ -10,11 +12,15 @@ public class Curso {
 	private String ch;
 	private String ementa;
 	private Professor professor;
+	private List<Turma> turmas;
+	
 	
 	// instantiation < --- > constructors
 	
+	
 	public Curso () {
-		
+		this.professor = new Professor();
+		this.turmas = new ArrayList<>();
 	}
 	
 	public Curso (String nome, String ch, String ementa, Professor professor) {
@@ -22,6 +28,7 @@ public class Curso {
 		this.ch = ch;
 		this.ementa = ementa;
 		this.professor = professor;
+		this.turmas = new ArrayList<>();
 	}
 		
 	
@@ -44,9 +51,16 @@ public class Curso {
 		this.professor = professor;
 	}
 	
-	// constructors < --- > setters
+	public void setTurma (Turma turma) {
+		turmas.add(turma);
+	}
 	
-	public String getName () {
+	
+	// setters < --- > getters
+
+
+
+public String getName () {
 		return this.nome;
 	}
 	
@@ -58,12 +72,31 @@ public class Curso {
 		return ementa;
 	}
 	
-	public Professor getProfessor() {
-		return this.professor;
+	public void getProfessor() {
+		
+		System.out.println(this.professor.getNome());
+		
 	}
 	
-	public String getAll () {
-		return "\nNome: " + this.nome + "\nCarga-Horária: " + this.ch + "\nEmenta: " + this.ementa + "\nProfessor: " + this.professor.getNome();
+	public void getTurma () {
+		
+		for (Turma turma : turmas) {
+			System.out.println(turma.getCodigo());
+		}
+		
+	}
+	
+	public void getAll () {
+		System.out.println("\nNome: " + this.nome + 
+						   "\nCarga-Horária: " + this.ch + 
+						   "\nEmenta: " + this.ementa + 
+						   "\nProfessor: " + this.professor.getNome() + 
+						   "\nCódigo da Turma: \n");
+		
+		for(Turma turma : turmas) {
+			System.out.println(turma.getCodigo());
+		}
+		
 	}
 }
 

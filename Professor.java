@@ -1,29 +1,31 @@
 /* * 
  * Classe desenvolvida por Alisson de Carvalho Silva 
- * Pendente: nenhuma.
+ * Pendente: n/a.
 * */
 
+import java.util.ArrayList;
+import java.util.List;
 
 public class Professor {
 	
 	private String nome;
 	private String especialidade;
 	private int id;
-	private Curso curso;
+	private List<Curso> cursos;
 	
 	
 	// instantiation < --- > constructors
 	
 	
 	public Professor () {
-		
+		this.cursos = new ArrayList<>();
 	}
 	
 	public Professor (String nome, String especialidade, int id, Curso curso) {
 		this.nome = nome;
 		this.especialidade = especialidade;
 		this.id = id;
-		this.curso = curso;
+		this.cursos = new ArrayList<>();
 	}
 	
 	
@@ -43,7 +45,7 @@ public class Professor {
 	}
 	
 	public void setCurso (Curso curso) {
-		this.curso = curso;
+		cursos.add(curso);
 	}
 	
 	
@@ -61,12 +63,23 @@ public class Professor {
 		return this.id;
 	}
 	
-	public Curso getCurso () {
-		return this.curso;
+	public void getCurso () {
+		
+		for (Curso curso : cursos) {
+			System.out.println("\n" + curso.getName());
+		}
+		
 	}
 	
-	public String getAll () {
-		return "\nNome: " + this.nome + "\nEspecialidade: " + this.especialidade + "\nId: " + this.id + "\nCurso: " + this.curso.getName(); 
+	public void getAll () {
+		System.out.println("\nNome: " + this.nome + 
+						   "\nEspecialidade: " + this.especialidade + 
+			               "\nId: " + this.id + 
+			               "\nCursos: \n");
+		
+		for( Curso curso : cursos) {
+			System.out.println(curso.getName());
+		}
 	}
 
 }
