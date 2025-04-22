@@ -6,6 +6,10 @@ public class Turma {
     private Curso curso;
     private ArrayList<Aluno> alunos = new ArrayList<>();
     private ArrayList<Avaliacao> avaliacoes = new ArrayList<>();
+    
+    public Turma() {
+    	
+    }
 
     public Turma(String codigo, String periodo, Curso curso) {
         this.codigo = codigo;
