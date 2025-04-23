@@ -13,7 +13,7 @@ public class Submissao {
         this.nota = nota;
         this.dataEntrega = dataEntrega;
         this.observacoes = observacoes;
-
+        
         avaliacao.adicionarSubmissao(this);
     }
 
