@@ -7,6 +7,12 @@ public class Avaliacao {
     private Turma turma;
     private ArrayList<Submissao> submissoes = new ArrayList<>();
 
+    public Avaliacao(String tipo, float notaMaxima, float peso) {
+        this.tipo = tipo;
+        this.notaMaxima = notaMaxima;
+        this.peso = peso;
+    }
+
     public Avaliacao(String tipo, float notaMaxima, float peso, Turma turma) {
         this.tipo = tipo;
         this.notaMaxima = notaMaxima;

@@ -60,7 +60,12 @@ public class Professor {
 	// setters < --- > getters 
 	
 	public String getNome () {
+
+		if(this.nome == null){
+		return "";
+		}else{
 		return this.nome;
+		}
 	}
 	
 	public String getEspecialidade () {

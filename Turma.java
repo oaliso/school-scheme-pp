@@ -11,6 +11,11 @@ public class Turma {
     	
     }
 
+    public Turma(String codigo, String periodo) {
+        this.codigo = codigo;
+        this.periodo = periodo;
+    }
+
     public Turma(String codigo, String periodo, Curso curso) {
         this.codigo = codigo;
         this.periodo = periodo;
@@ -53,7 +58,12 @@ public class Turma {
         return alunos;
     }
 
-    public ArrayList<Avaliacao> getAvaliacoes() {
-        return avaliacoes;
+    public void getAvaliacoes() {
+        for(Avaliacao avaliacao : avaliacoes) {
+			System.out.println("Tipo: " + avaliacao.getTipo());
+            System.out.println("Nota máxima: " + avaliacao.getNotaMaxima());
+            System.out.println("Peso: " + avaliacao.getPeso() + "\n");
+            
+		}
     }
 }
