@@ -8,12 +8,11 @@ public class RelatorioDesempenho {
     private float mediaPonderada;
     private float aproveitamento;
 
-    public Relatorio(Aluno aluno, Turma turma) {
+    public RelatorioDesempenho(Aluno aluno, Turma turma) {
         this.aluno = aluno;
         this.turma = turma;
         this.submissões = new ArrayList<>();
         calcularDesempenho();
-
         aluno.setRelatorio(this); 
     }
 
@@ -46,7 +45,7 @@ public class RelatorioDesempenho {
         System.out.println("Turma: " + turma.getCodigo());
         System.out.println("Notas Individuais:");
         for (Submissao s : submissões) {
-            System.out.printf("- %s: %.2f\n", s.getAvaliacao().getTitulo(), s.getNota());
+            System.out.printf("- %s: %.2f\n", s.getAvaliacao().getTipo(), s.getNota());
         }
         System.out.printf("Média Ponderada: %.2f\n", mediaPonderada);
         System.out.printf("Aproveitamento: %.2f%%\n", aproveitamento);

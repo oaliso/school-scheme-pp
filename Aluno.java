@@ -12,7 +12,7 @@ public class Aluno {
 	private int id;
 	private String email;
 	private List<Turma> turmas;
-	private List<Relatorio> relatorios;
+	private List<RelatorioDesempenho> relatorios;
 	
 	
 	// instantiation < --- > constructors
@@ -21,7 +21,7 @@ public class Aluno {
 	public Aluno () {
 		
 		this.turmas = new ArrayList<>();
-		this.relatorios = new ArratList<>();
+		this.relatorios = new ArrayList<>();
 	}
 	
 	public Aluno (String nome, int id, String email) {
@@ -29,9 +29,8 @@ public class Aluno {
 		this.id = id;
 		this.email = email;
 		this.turmas = new ArrayList<>();
-		this.relatorios = new ArratList<>();
+		this.relatorios = new ArrayList<>();
 	}
-	
 	
 	// constructors < --- > setters
 	
@@ -52,7 +51,7 @@ public class Aluno {
 		turmas.add(turma);
 	}
 	
-	public void setRelatorio (Relatorio relatorio) {
+	public void setRelatorio (RelatorioDesempenho relatorio) {
 		relatorios.add(relatorio);
 	}
 
@@ -80,7 +79,7 @@ public class Aluno {
 	}
 	
 	public void getRelatorios () {
-		for (Relatorio relatorio : relatorios) {
+		for (RelatorioDesempenho relatorio : relatorios) {
 			relatorio.getAll();
 			
 			System.out.println("\n");
@@ -92,7 +91,7 @@ public class Aluno {
 		System.out.println("\nNome: " + this.nome +
 				"\nId: " + this.id +
 				"\nEmail: " + this.email + 
-				"\nTurmas: \n");
+				"\nTurmas:");
 		
 		for (Turma turma : turmas ) {
 			System.out.println(turma.getCodigo());

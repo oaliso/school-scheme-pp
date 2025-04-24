@@ -20,13 +20,14 @@ public class Professor {
 	public Professor () {
 		this.cursos = new ArrayList<>();
 	}
-	
-	public Professor (String nome, String especialidade, int id, Curso curso) {
+
+	public Professor (String nome, String especialidade, int id) {
 		this.nome = nome;
 		this.especialidade = especialidade;
 		this.id = id;
 		this.cursos = new ArrayList<>();
 	}
+
 	
 	
 	// constructors < --- > setters
@@ -75,10 +76,10 @@ public class Professor {
 		System.out.println("\nNome: " + this.nome + 
 						   "\nEspecialidade: " + this.especialidade + 
 			               "\nId: " + this.id + 
-			               "\nCursos: \n");
+			               "\nCursos:");
 		
 		for( Curso curso : cursos) {
-			System.out.println(curso.getName());
+			System.out.println("  - " + curso.getName());
 		}
 	}
 

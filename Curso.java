@@ -3,8 +3,8 @@
  * Pendente: n/a.
 * */
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Curso {
 	
@@ -20,6 +20,13 @@ public class Curso {
 	
 	public Curso () {
 		this.professor = new Professor();
+		this.turmas = new ArrayList<>();
+	}
+
+	public Curso (String nome, String ch, String ementa) {
+		this.nome = nome;
+		this.ch = ch;
+		this.ementa = ementa;
 		this.turmas = new ArrayList<>();
 	}
 	
@@ -91,7 +98,7 @@ public String getName () {
 						   "\nCarga-Horária: " + this.ch + 
 						   "\nEmenta: " + this.ementa + 
 						   "\nProfessor: " + this.professor.getNome() + 
-						   "\nCódigo da Turma: \n");
+						   "\nCódigo da Turma:");
 		
 		for(Turma turma : turmas) {
 			System.out.println(turma.getCodigo());
