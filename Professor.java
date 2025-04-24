@@ -28,6 +28,13 @@ public class Professor {
 		this.cursos = new ArrayList<>();
 	}
 
+	public Professor (String nome, String especialidade, int id, Curso curso) {
+		this.nome = nome;
+		this.especialidade = especialidade;
+		this.id = id;
+		this.cursos = new ArrayList<>();
+	}
+
 	
 	
 	// constructors < --- > setters

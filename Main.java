@@ -25,17 +25,37 @@ public class Main {
 
 		if( x == 1){
 
-					// 2 professores com cursos distintos
+			// 2 professores com cursos distintos
 
-		Curso pp = new Curso("Projeto de Programas", "120 horas", "Ensinar Paradigma Orientado a Objeto");
-		Curso ftc = new Curso("Fundamentos Téoricos da Computação", "60 horas", "Abordar temas teóricos acerca da computação");
-		Curso md = new Curso("Matemática Discreta", "120h", "Lógica de Predicados");
-		Curso aed = new Curso("Algoritmo e Estrutura de Dados", "120h", "Abordagem de Algoritmos");
+			Curso pp = new Curso("Projeto de Programas", "120 horas", "Ensinar Paradigma Orientado a Objeto");
+			Curso ftc = new Curso("Fundamentos Téoricos da Computação", "60 horas", "Abordar temas teóricos acerca da computação");
+			Curso md = new Curso("Matemática Discreta", "120h", "Lógica de Predicados");
+			Curso aed = new Curso("Algoritmo e Estrutura de Dados", "120h", "Abordagem de Algoritmos");
 
-		Professor prof1 = null;
-		Professor prof2 = null;
+			Professor prof1 = new Professor("Fábio Santos", "Paradigma Orientado a Objeto", 1234);
+			Professor prof2 = new Professor("Elloa Guedes", "Fundamentos Computacionais", 4321);
 
-		System.out.println("\nBoa! Vamos lá para a simulação 1 : 2 professores com cursos distintos.");
+			prof1.setCurso(pp); 
+			pp.setProfessor(prof1);
+			prof1.setCurso(aed); 
+			aed.setProfessor(prof1);
+
+			prof2.setCurso(ftc); 
+			ftc.setProfessor(prof2);
+			prof2.setCurso(md); 
+			md.setProfessor(prof2);
+
+			System.out.println("\nAguarde. Gerando simulação...");
+
+			Thread.sleep(2000);
+
+			System.out.println("\nProfessor 1: ");
+			prof1.getAll();
+
+			Thread.sleep(2000);
+
+			System.out.println("\nProfessor 2: ");
+			prof2.getAll();
 
 		// alisson ja ta fazendo
 
