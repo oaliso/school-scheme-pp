@@ -8,6 +8,7 @@
   * Simulação mínima
   */
 
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Main {
@@ -42,6 +43,13 @@ public class Main {
 			Avaliacao av2 = new Avaliacao("Trabalho", 10, 1);
 			Avaliacao av3 = new Avaliacao("Atividade", 10, 1);
 
+			tm1.adicionarAvaliacao(av2);
+			tm1.adicionarAluno(aluno5);
+
+			Submissao s1 = new Submissao(aluno5, av1, 8.5f, LocalDate.now(), "Bom desempenho");
+			Submissao s2 = new Submissao(aluno5, av1, 6.5f, LocalDate.now(), "Médio desempenho");
+			Submissao s3 = new Submissao(aluno5, av1, 10f, LocalDate.now(), "Ótimo desempenho");
+
 		// -  -  -
 
 		int x;
@@ -53,6 +61,8 @@ public class Main {
 		if( x == 1){
 
 			// 2 professores com cursos distintos
+
+			System.out.println("\nBeleza! Vamos lá para a simulação 1!\n");
 
 			prof1.setCurso(pp); 
 			pp.setProfessor(prof1);
@@ -159,23 +169,39 @@ public class Main {
 
 						System.out.println("\nBeleza. Vamos realizar a simulação 4\n");
 
+						System.out.println("Aguarde. Gerando a simulação...");
+
+						Thread.sleep(2000);
+
 						System.out.println("\nAvaliações da Turma 1: \n");
 						tm1.getAvaliacoes();
-
-
-
-
 
 					}else{
 						if(x == 5){
 
+							System.out.println("\nBeleza! Vamos realizar a simulação 5");
 
+							// Criando submissões
+
+							System.out.println("Aluno: " + aluno5.getNome());
+							System.out.println("Código da turma: " + tm1.getCodigo());
+							System.out.println("Tipo de Avaliação: " + av2.getTipo());
+							System.out.println("Nota do aluno: " + s1.getNota());
+
+							System.out.println("\nSubmissões realizadas com sucesso!");
 
 						}else{
 							if(x == 6){
 
+								System.out.println("\nGerando relatórios de desempenho...");
 
-								
+								RelatorioDesempenho rel1 = new RelatorioDesempenho(aluno5, tm1);
+								rel1.setSub(s1);
+								rel1.setSub(s2);
+								rel1.setSub(s3);
+					
+								rel1.getAll();
+
 							}else{
 								System.out.println("Valor inválido! Reinicie o programa");
 							}

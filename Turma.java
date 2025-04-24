@@ -66,4 +66,8 @@ public class Turma {
             
 		}
     }
+
+    public ArrayList<Avaliacao> getAval() {
+        return avaliacoes;
+    }
 }

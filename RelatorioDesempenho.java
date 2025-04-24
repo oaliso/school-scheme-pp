@@ -4,26 +4,31 @@ import java.util.List;
 public class RelatorioDesempenho {
     private Aluno aluno;
     private Turma turma;
-    private List<Submissao> submissões;
+    private List<Submissao> submissoes;
     private float mediaPonderada;
     private float aproveitamento;
+    private float soma;
 
     public RelatorioDesempenho(Aluno aluno, Turma turma) {
         this.aluno = aluno;
         this.turma = turma;
-        this.submissões = new ArrayList<>();
+        this.submissoes = new ArrayList<>();
         calcularDesempenho();
         aluno.setRelatorio(this); 
+    }
+
+    public void setSub(Submissao sub) {
+        submissoes.add(sub);
     }
 
     public void calcularDesempenho() {
         float somaNotasPonderadas = 0;
         float somaPesos = 0;
 
-        for (Avaliacao avaliacao : turma.getAvaliacoes()) {
+        for (Avaliacao avaliacao : turma.getAval()) {
             for (Submissao submissao : avaliacao.getSubmissoes()) {
                 if (submissao.getAluno().equals(aluno)) {
-                    submissões.add(submissao);
+                    submissoes.add(submissao);
                     float peso = avaliacao.getPeso();
                     somaNotasPonderadas += submissao.getNota() * peso;
                     somaPesos += peso;
@@ -44,11 +49,11 @@ public class RelatorioDesempenho {
         System.out.println("Relatório de Desempenho - " + aluno.getNome());
         System.out.println("Turma: " + turma.getCodigo());
         System.out.println("Notas Individuais:");
-        for (Submissao s : submissões) {
-            System.out.printf("- %s: %.2f\n", s.getAvaliacao().getTipo(), s.getNota());
+        for (Submissao s : submissoes) {
+            System.out.println(s.getNota());
+            this.soma += s.getNota();
         }
-        System.out.printf("Média Ponderada: %.2f\n", mediaPonderada);
-        System.out.printf("Aproveitamento: %.2f%%\n", aproveitamento);
+        System.out.println("Média ponderada: " + soma/submissoes.size());
     }
 
     public Aluno getAluno() {
@@ -60,7 +65,7 @@ public class RelatorioDesempenho {
     }
 
     public List<Submissao> getSubmissoes() {
-        return submissões;
+        return submissoes;
     }
 
     public float getMediaPonderada() {
